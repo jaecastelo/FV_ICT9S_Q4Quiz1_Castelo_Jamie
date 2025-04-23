@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QUIZ 1</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Georgia, serif;	
+     background: url('https://png.pngtree.com/background/20220730/original/pngtree-spring-field-with-bunny-hunting-easter-eggs-picture-image_1877899.jpg');
+     background-repeat:no-repeat;
+     background-size:cover;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .circle-wrapper {
+      width: 350px;
+      height: 500px;
+      border: 6px solid #FFC6C6;
+      border-radius: 50%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: url('https://i0.wp.com/pearlyarts.com/wp-content/uploads/2022/04/Yellow-Easter-Egg-Clipart-WM-.png') center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    input {
+      margin: 5px 0;
+      padding: 6px;
+      width: 150px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 6px 12px;
+      background-color: #FFDBDB;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .ajde{
+    	text-align:center;
+    	margin-top:20px;
+    	color:#F7CFD8;
+
+    }
+   
+  </style>
+</head>
+<body>
+
+
+  <div class="circle-wrapper">
+    <h2>BMI</h2>
+    <p>Body Mass Index (BMI) is used to measure body mass based on their height and weight.</p>
+
+    <label>Weight (kg):</label>
+    <input type="number" id="W" placeholder="e.g. 60"><br>
+
+    <label>Height (cm):</label>
+    <input type="number" id="H" placeholder="e.g. 170"><br>
+
+    <button onclick="bmicalc()">Calculate</button>
+
+    <div id="result">Result here</div>
+  </div>
+  <div class="adje">
+  	Source: <a href="https://docs.google.com/document/d/17A3PX4QD50ZwJjGkY8me_GitO9tHLQ7i2ckptJ0fghc/edit?usp=sharing">
+
+  <script>
+    function bmicalc() {
+      const weight = Math.abs(+document.getElementById("W").value);
+      const height = Math.abs(+document.getElementById("H").value) / 100;
+      const resultDiv = document.getElementById("result");
+
+      if (weight && height) {
+        let bmi = weight / (height * height);
+        bmi = Math.round(bmi * 10) / 10;
+
+        let bodytype = "";
+
+        if (bmi < 18.5) {
+          bodytype = "Underweight";
+        } else if (bmi < 25) {
+          bodytype = "Normal";
+        } else if (bmi < 30) {
+          bodytype = "Overweight";
+        } else {
+          bodytype = "Obese";
+        }
+
+        resultDiv.innerHTML = `BMI: ${bmi}<br>(${bodytype})`;
+      } else {
+        resultDiv.innerHTML = "Please enter valid numbers!";
+      }
+    }
+  </script>
+
+  <p>By Jamie</p>
+
+</body>
+</html>
